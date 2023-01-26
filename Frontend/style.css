@@ -1,0 +1,11 @@
+.cardData{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* margin: 30px; */
+    /* padding: 30px; */
+    justify-content: center;
+}
+.card{
+    margin: 40px;
+}

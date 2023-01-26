@@ -4,16 +4,19 @@ import express from 'express';
 const app = express();
 import { MongoClient } from 'mongodb'
 import * as dotenv from 'dotenv';
+import cors from 'cors';
 import moviesRouter from './routes/movies.route.js';
 dotenv.config();
 
+app.use(cors())
 // const MONGO_URL = 'mongodb://127.0.0.1';
+const MONGO_URL = process.env.MONGO_URL;
+const PORT = process.env.PORT;
 
-const client = new MongoClient(process.env.MONGO_URL);  //dial a number.
+const client = new MongoClient(MONGO_URL);  //dial a number.
 await client.connect(); //call  //previous handshake is happening
 console.log("mongo is connected !!!");
 
-// const PORT = 4000;
 
 
 app.get("/", function (request, response) {
@@ -22,6 +25,6 @@ app.get("/", function (request, response) {
 
 app.use('/movies',moviesRouter)
 
-app.listen(process.env.PORT||4000, () => console.log(`The server started ✨✨`));
+app.listen(PORT, () => console.log(`The server started ✨✨`));
 
 export {client};
