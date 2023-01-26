@@ -1,7 +1,7 @@
 //Target an element:
 let cardData = document.querySelector(".cardData");
 
-const url="http://localhost:4000/movies";
+const url="https://movies-sample-project-day-4-nodejs.vercel.app/movies";
 
 
 addEventListener("DOMContentLoaded",async ()=>{
